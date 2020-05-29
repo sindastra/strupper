@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
 		if(!strcmp(argv[1],"version") || !strcmp(argv[1],"-v") || !strcmp(argv[1],"--version"))
 		{
-			printf("Version is %s\n", "2020-05-29-r2");
+			printf("Version is %s\n", "2020-05-29-r3");
 		}
 
 		if(!strcmp(argv[1],"help") || !strcmp(argv[1],"-h") || !strcmp(argv[1],"--help") || !strcmp(argv[1],"/?"))
@@ -75,9 +75,19 @@ int main(int argc, char *argv[])
 
 	while((c = getchar()) != EOF)
 	{
+		// If called as strlower do the opposite conversion
+		// copy and rename the program or symlink to it as strlower
+		if(strstr(argv[0],"strlower") && !strstr(argv[0],"strupper"))
+		{
+			if(c >= 65 && c <=90)
+				c += 32;
+		}
+		else
+		{
 		if(c >= 97 && c <= 122)
 			c -= 32;
 
+		}
 		putchar(c);
 	}
 
