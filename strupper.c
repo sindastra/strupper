@@ -84,9 +84,8 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-		if(c >= 97 && c <= 122)
-			c -= 32;
-
+			if(c >= 97 && c <= 122)
+				c -= 32;
 		}
 		putchar(c);
 	}
